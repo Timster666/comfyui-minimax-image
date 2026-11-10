@@ -1,0 +1,17 @@
+# Points ComfyUI at the persistent volume so models survive pod resets.
+workspace:
+  base_path: /workspace/models
+  is_default: true
+  checkpoints: checkpoints
+  diffusion_models: |
+    diffusion_models
+    unet
+  text_encoders: |
+    text_encoders
+    clip
+  vae: vae
+  loras: loras
+  controlnet: controlnet
+  upscale_models: upscale_models
+  embeddings: embeddings
+  clip_vision: clip_vision
