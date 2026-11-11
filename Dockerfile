@@ -1,5 +1,5 @@
 # ComfyUI + MiniMax-H3-Image — RunPod pod template
-# Models are NOT baked into the image; start.sh downloads them to /workspace on first boot.
+# On first boot start.sh copies ComfyUI to /workspace/ComfyUI and downloads the models there.
 FROM nvidia/cuda:12.8.1-cudnn-runtime-ubuntu24.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -38,7 +38,6 @@ RUN pip install "huggingface_hub[hf_xet]"
 # JupyterLab (port 8888) for file browsing, terminals and notebooks
 RUN pip install jupyterlab
 
-COPY extra_model_paths.yaml /opt/ComfyUI/extra_model_paths.yaml
 # Workflows bundled with the image (put .json files in the repo's workflows/ folder)
 COPY workflows/ /opt/default_workflows/
 COPY start.sh /start.sh
